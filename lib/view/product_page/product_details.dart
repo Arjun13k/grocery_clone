@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:ui_task/model/product_screen/product_details_model.dart';
 import 'package:ui_task/model/product_screen/product_rating_model.dart';
+import 'package:ui_task/view/checkout_screen/checkout_screen.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({super.key, required this.productmodel});
+  const ProductDetails(
+      {super.key, required this.productmodel, required this.productdetails});
   final RatingModel productmodel;
+  final ProductModel productdetails;
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +148,7 @@ class ProductDetails extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: 15,
+                        height: 5,
                       ),
                       Text(
                         "Details",
@@ -154,16 +158,18 @@ class ProductDetails extends StatelessWidget {
                       Divider(),
                       Row(
                         children: [
-                          Text(
-                            "Brand",
-                            style:
-                                TextStyle(color: Colors.black.withOpacity(.4)),
+                          Expanded(
+                            child: Text(
+                              "Brand",
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(.4)),
+                            ),
                           ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          Text(
-                            "red label",
+                          Expanded(
+                            flex: 2,
+                            child: Text(
+                              productdetails.brand,
+                            ),
                           )
                         ],
                       ),
@@ -172,16 +178,18 @@ class ProductDetails extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Text(
-                            "Type",
-                            style:
-                                TextStyle(color: Colors.black.withOpacity(.4)),
+                          Expanded(
+                            child: Text(
+                              "Type",
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(.4)),
+                            ),
                           ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          Text(
-                            "red label",
+                          Expanded(
+                            flex: 2,
+                            child: Text(
+                              productdetails.type,
+                            ),
                           )
                         ],
                       ),
@@ -190,16 +198,18 @@ class ProductDetails extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Text(
-                            "Quantity",
-                            style:
-                                TextStyle(color: Colors.black.withOpacity(.4)),
+                          Expanded(
+                            child: Text(
+                              "Quantity",
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(.4)),
+                            ),
                           ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          Text(
-                            "red label",
+                          Expanded(
+                            flex: 2,
+                            child: Text(
+                              productdetails.quantity,
+                            ),
                           )
                         ],
                       ),
@@ -208,16 +218,18 @@ class ProductDetails extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Text(
-                            "Shelf life",
-                            style:
-                                TextStyle(color: Colors.black.withOpacity(.4)),
+                          Expanded(
+                            child: Text(
+                              "Shelf life",
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(.4)),
+                            ),
                           ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          Text(
-                            "red label",
+                          Expanded(
+                            flex: 2,
+                            child: Text(
+                              productdetails.shelflife,
+                            ),
                           )
                         ],
                       ),
@@ -226,34 +238,38 @@ class ProductDetails extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          Text(
-                            "organic",
-                            style:
-                                TextStyle(color: Colors.black.withOpacity(.4)),
+                          Expanded(
+                            child: Text(
+                              "organic",
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(.4)),
+                            ),
                           ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          Text(
-                            "red label",
+                          Expanded(
+                            flex: 2,
+                            child: Text(
+                              productdetails.organic,
+                            ),
                           )
                         ],
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 20,
                       ),
                       Row(
                         children: [
-                          Text(
-                            "flavor",
-                            style:
-                                TextStyle(color: Colors.black.withOpacity(.4)),
+                          Expanded(
+                            child: Text(
+                              "flavor",
+                              style: TextStyle(
+                                  color: Colors.black.withOpacity(.4)),
+                            ),
                           ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          Text(
-                            "red label",
+                          Expanded(
+                            flex: 2,
+                            child: Text(
+                              productdetails.flavor,
+                            ),
                           )
                         ],
                       ),
@@ -297,16 +313,24 @@ class ProductDetails extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 110, vertical: 15),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Color.fromARGB(255, 8, 166, 13),
-                  ),
-                  child: Text(
-                    "ADD TO CART",
-                    style: TextStyle(
-                      color: Colors.white,
+                InkWell(
+                  onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CheckoutScreen(),
+                      )),
+                  child: Container(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 110, vertical: 15),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color.fromARGB(255, 8, 166, 13),
+                    ),
+                    child: Text(
+                      "ADD TO CART",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),

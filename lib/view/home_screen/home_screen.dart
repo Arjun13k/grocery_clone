@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ui_task/controller/home_screen/category_controller.dart';
 import 'package:ui_task/controller/home_screen/controller_model.dart';
+import 'package:ui_task/controller/product_screen/product_detais_controller.dart';
 import 'package:ui_task/controller/product_screen/product_screen_controller.dart';
 import 'package:ui_task/core/constant/image/image_constant.dart';
 import 'package:ui_task/view/home_screen/list_of_fruits.dart';
@@ -40,7 +41,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -141,6 +142,8 @@ class HomeScreen extends StatelessWidget {
                                 builder: (context) => ProductDetails(
                                   productmodel: ProductController
                                       .isRatingCOntroller[index],
+                                  productdetails: productDetailsController
+                                      .isProductDetails[index],
                                 ),
                               )),
                           child: StackList(

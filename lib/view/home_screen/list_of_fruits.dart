@@ -20,7 +20,7 @@ class SmallItems extends StatelessWidget {
               children: [
                 Image.network(
                   modelCAtegoryLIst.categoryimage,
-                  scale: 3,
+                  scale: 10,
                 ),
                 Text(modelCAtegoryLIst.text,
                     style: TextStyle(fontWeight: FontWeight.bold))

@@ -4,7 +4,7 @@ class ProductController {
   static List<RatingModel> isRatingCOntroller = [
     RatingModel(
         productImage:
-            "https://5.imimg.com/data5/SELLER/Default/2021/1/QR/TC/QF/3940029/vegetables-testing-services-500x500.jpg",
+            "https://www.nicepng.com/png/detail/981-9812912_red-label-tea-500gm.png",
         title: "Red Label Tea",
         rating: "96 rating",
         rate: "4.4",
